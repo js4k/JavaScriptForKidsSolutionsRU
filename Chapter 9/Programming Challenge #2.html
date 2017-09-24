@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playing with the DOM</title>
+</head>
+
+<body>
+    <h1 id="main-heading">Hello world!</h1>
+
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+
+    <script>
+    var fadeTime;
+    for (var i = 0; i < 5; i++) {
+      fadeTime = (i + 1) * 1000;
+      $("#main-heading").fadeOut(fadeTime / 2).fadeIn(fadeTime / 2);
+    }
+    </script>
+   </body>
+</html>

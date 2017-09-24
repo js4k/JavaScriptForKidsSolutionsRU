@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My first proper HTML page</title>
+</head>
+<body>
+    <h1>Hello world!</h1>
+    <p>My first web page.</p>
+    <script>
+    var alphabet = "abcdefghijklmnopqrstuvwxyz";
+    var randomString = "";
+    var stringLength = 6;
+
+    for (var i = 0; i < stringLength; i++) {
+      randomString += alphabet[Math.floor(Math.random() * alphabet.length)];
+    }
+
+    console.log(randomString);
+    </script>
+</body>
+</html>

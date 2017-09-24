@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard input</title>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var width = canvas.width;
+    var height = canvas.height;
+
+    var circle = function (x, y, radius, fillCircle) {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+      if (fillCircle) {
+        ctx.fill();
+        } else {
+        ctx.stroke();
+      }
+    };
+
+    // The Ball constructor
+    var Ball = function () {
+      this.x = width / 2;
+      this.y = height / 2;
+      this.xSpeed = 5;
+      this.ySpeed = 0;
+    };
+
+    // Update the ball's position based on its speed
+    Ball.prototype.move = function () {
+      this.x += this.xSpeed;
+      this.y += this.ySpeed;
+
+      if (this.x < 0 || this.x > width) {
+        this.xSpeed = -this.xSpeed;
+      } else if (this.y < 0 || this.y > height) {
+        this.ySpeed = -this.ySpeed;
+      }
+    };
+
+    // Draw the ball at its current position
+    Ball.prototype.draw = function () {
+      circle(this.x, this.y, 10, true);
+    };
+
+    // Set the ball's direction based on a string
+    Ball.prototype.setDirection = function (direction) {
+      if (direction === "up") {
+        this.xSpeed = 0;
+        this.ySpeed = -5;
+      } else if (direction === "down") {
+        this.xSpeed = 0;
+        this.ySpeed = 5;
+      } else if (direction === "left") {
+        this.xSpeed = -5;
+        this.ySpeed = 0;
+      } else if (direction === "right") {
+        this.xSpeed = 5;
+        this.ySpeed = 0;
+      } else if (direction === "stop") {
+        this.xSpeed = 0;
+        this.ySpeed = 0;
+      }
+    };
+
+    // Create the ball object
+    var ball = new Ball();
+
+    // An object to convert keycodes into action names
+    var keyActions = {
+      32: "stop",
+      37: "left",
+      38: "up",
+      39: "right",
+      40: "down"
+    };
+
+    // The keydown handler that will be called for every keypress
+    $("body").keydown(function (event) {
+      var direction = keyActions[event.keyCode];
+      ball.setDirection(direction);
+    });
+
+    // The animation function, called every 30 ms
+    setInterval(function () {
+      ctx.clearRect(0, 0, width, height);
+
+      ball.draw();
+      ball.move();
+
+      ctx.strokeRect(0, 0, width, height);
+    }, 30);
+    </script>
+</body>
+</html>
