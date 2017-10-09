@@ -1,18 +1,19 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>My first proper HTML page</title>
+    <title>Моя первая настоящая HTML-страничка</title>
 </head>
 <body>
-    <h1>Hello world!</h1>
-    <p>My first web page.</p>
+    <h1>Привет, мир!</h1>
+    <p>Моя первая веб-страничка.</p>
     <script>
-    var alphabet = "abcdefghijklmnopqrstuvwxyz";
+    var alphabet = "абвгдеёжзиклмнопрстуфхцчшщъыьэюя";
     var randomString = "";
     var stringLength = 6;
-
-    for (var i = 0; i < stringLength; i++) {
-      randomString += alphabet[Math.floor(Math.random() * alphabet.length)];
+    
+    while (randomString.length < stringLength) {
+      randomString += alphabet[Math.floor(Math.random() *   alphabet.length)];
     }
 
     console.log(randomString);
