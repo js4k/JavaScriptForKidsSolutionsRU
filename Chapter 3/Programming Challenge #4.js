@@ -1,2 +1,2 @@
-[3, 2, 1].join(" is bigger than ");
-// "3 is bigger than 2 is bigger than 1"
+[3, 2, 1].join(" больше, чем ");
+// "3 больше, чем 2 больше, чем 1"
