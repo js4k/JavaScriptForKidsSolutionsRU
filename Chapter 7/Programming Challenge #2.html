@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hangman!</title>
+    <title>Виселица!</title>
 </head>
 <body>
-    <h1>Hangman!</h1>
+    <h1>Виселица!</h1>
     <script>
-    // Create an array of words
+    // Создаем массив со словами
     var words = [
-      "javascript",
-      "monkey",
-      "amazing",
-      "pancake"
+      "программа",
+      "макака",
+      "прекрасный",
+      "оладушек"
     ];
-
-    // Pick a random word
+    
+    // Выбираем случайное слово
     var word = words[Math.floor(Math.random() * words.length)];
-
-    // Set up the answer array
+    
+    // Создаем итоговый массив
     var answerArray = [];
     for (var i = 0; i < word.length; i++) {
       answerArray[i] = "_";
     }
-
+    
     var remainingLetters = word.length;
-
-    // The game loop
+    
+    // Игровой цикл
     while (remainingLetters > 0) {
-      // Show the player their progress
+      // Показываем состояние игры
       alert(answerArray.join(" "));
-
-      // Get a guess from the player
-      var guess = prompt("Guess a letter, or click Cancel to stop playing.");
+      
+      // Запрашиваем вариант ответа
+      var guess = prompt("Угадайте букву, или нажмите Отмена для выхода из игры.");
       if (guess === null) {
-        // Exit the game loop
+        // Выходим из игрового цикла
         break;
       } else if (guess.length !== 1) {
-        alert("Please enter a single letter.");
+        alert("Пожалуйста, введите одиночную букву.");
       } else {
         guess = guess.toLowerCase();
-        // Update the game state with the guess
+        // Обновляем состояние игры
         for (var j = 0; j < word.length; j++) {
           if (word[j] === guess) {
             answerArray[j] = guess;
@@ -47,12 +47,12 @@
           }
         }
       }
-    // The end of the game loop
+    // Конец игрового цикла
     }
-
-    // Show the answer and congratulate the player
+    
+    // Отображаем ответ и поздравляем игрока
     alert(answerArray.join(" "));
-    alert("Good job! The answer was " + word);
+    alert("Отлично! Было загадано слово " + word);
     </script>
 </body>
 </html>
