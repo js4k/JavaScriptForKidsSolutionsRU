@@ -1,14 +1,14 @@
 var scores = {
-  nick: 0,
-  philly: 0
+  "Фёдор": 0,
+  "Хабиб": 0
 };
 
-// Increase Philly's score by 100
-scores.philly += 100;
+// Увеличиваем счёт Фёдора на 1000
+scores["Фёдор"] += 1000;
 
-// Increase Nick's score by 90
-scores.nick += 90;
+// Увеличиваем счёт Хабиба на 100
+scores["Хабиб"] += 100;
 
-// Show scores
+// Показываем счёт игроков
 scores;
-// { nick: 90, philly: 100 }
+// { 'Фёдор': 1000, 'Хабиб': 100 }
