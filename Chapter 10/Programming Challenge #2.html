@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Interactive programming</title>
+    <title>Интерактивное программирование</title>
 </head>
 
 <body>
-    <h1 id="heading">Hello world!</h1>
+    <h1 id="heading">Привет, мир!</h1>
 
     <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
 
     <script>
-    var direction = 'right';
+    var direction = 'вправо';
     var offset = 0;
 
     $("#heading").offset({ left: offset, top: offset });
 
     var moveHeading = function () {
-      if (direction === 'right') {
+      if (direction === 'вправо') {
         $("#heading").offset({ left: offset });
         offset++;
         if (offset > 200) {
           offset = 0;
-          direction = 'down';
+          direction = 'вниз';
         }
-      } else if (direction === 'down') {
+      } else if (direction === 'вниз') {
         $("#heading").offset({ top: offset });
         offset++;
         if (offset > 200) {
           offset = 200;
-          direction = 'left';
+          direction = 'влево';
         }
-      } else if (direction === 'left') {
+      } else if (direction === 'влево') {
         $("#heading").offset({ left: offset });
         offset--;
         if (offset < 0) {
           offset = 200;
-          direction = 'up';
+          direction = 'вверх';
         }
-      } else if (direction === 'up') {
+      } else if (direction === 'вверх') {
         $("#heading").offset({ top: offset });
         offset--;
         if (offset < 0) {
           offset = 0;
-          direction = 'right';
+          direction = 'вправо';
         }
       }
     };
