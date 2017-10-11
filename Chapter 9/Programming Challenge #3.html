@@ -16,7 +16,7 @@
 
     for (var i = 0; i < friends.length; i++) {
       $("body").append("<p>" + friends[i] + "</p>");
-      $("p").last().hide().fadeIn((i + 1) * 10000);
+      $("p").last().hide().delay((i + 1) * 3000).fadeIn(2000);
     }
 
     $("p").append(" лучший!");
