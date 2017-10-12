@@ -12,6 +12,8 @@
     <script>
     var direction = 'вправо';
     var offset = 0;
+    var intervalLength = 120;
+    var clicks = 0;
 
     $("#heading").offset({ left: offset, top: offset });
 
@@ -47,10 +49,19 @@
       }
     };
 
-    var intervalId = setInterval(moveHeading, 30);
-    
+    var intervalId = setInterval(moveHeading, intervalLength);
+
     $("#heading").click(function () {
       clearInterval(intervalId);
+      intervalLength /= 2;
+      clicks++;
+
+      if (clicks > 10) {
+        $("#heading").text("Накликал-таки!");
+      } else {
+        intervalId = setInterval(moveHeading, intervalLength)
+
+      }
     });
     </script>
 </body>
