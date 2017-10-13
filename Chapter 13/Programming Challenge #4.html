@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Canvas</title>
+  <title>Виселица</title>
 </head>
 
 <body>
@@ -13,11 +13,11 @@
 
     var pickWord = function () {
       var words = [
-        "javascript",
-        "monkey",
-        "amazing",
-        "pancake"
-      ];
+      "программа",
+      "макака",
+      "прекрасный",
+      "оладушек"
+    ];
 
       return words[Math.floor(Math.random() * words.length)];
     };
@@ -36,7 +36,7 @@
     };
 
     var getGuess = function () {
-      return prompt("Guess a letter, or click Cancel to stop playing.");
+      return prompt("Угадайте букву, или нажмите Отмена для выхода из игры.");
     };
 
     var updateGameState = function (guess, word, answerArray) {
@@ -53,7 +53,7 @@
 
     var showAnswerAndCongratulatePlayer = function (answerArray) {
       showPlayerProgress(answerArray);
-      alert("Good job! The answer was " + answerArray.join(""));
+      alert("Отлично! Было загадано слово " + answerArray.join(""));
     };
 
     var drawSegment = function (incorrectGuesses) {
@@ -94,11 +94,13 @@
     var remainingLetters = word.length;
     var incorrectGuesses = 0;
 
-    while (remainingLetters > 0) { showPlayerProgress(answerArray); var guess = getGuess();
+    while (remainingLetters > 0) {
+      showPlayerProgress(answerArray);
+      var guess = getGuess();
       if (guess === null) {
         break;
       } else if (guess.length !== 1) {
-        alert("Please enter a single letter.");
+        alert("Пожалуйста, введите одиночную букву.");
       } else {
         var correctGuesses = updateGameState(guess, word, answerArray);
 
