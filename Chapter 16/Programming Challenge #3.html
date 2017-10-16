@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Canvas</title>
+  <title>Виселица!</title>
 </head>
 
 <body>
@@ -13,10 +13,10 @@
 
     var pickWord = function () {
       var words = [
-        "javascript",
-        "monkey",
-        "amazing",
-        "pancake"
+        "программа",
+        "макака",
+        "прекрасный",
+        "оладушек"
       ];
 
       return words[Math.floor(Math.random() * words.length)];
@@ -36,7 +36,7 @@
     };
 
     var getGuess = function () {
-      return prompt("Guess a letter, or click Cancel to stop playing.");
+      return prompt("Угадайте букву, или нажмите Отмена для выхода из игры.");
     };
 
     var updateGameState = function (guess, word, answerArray) {
@@ -54,7 +54,7 @@
 
     var showAnswerAndCongratulatePlayer = function (answerArray) {
       showPlayerProgress(answerArray);
-      alert("Good job! The answer was " + answerArray.join(""));
+      alert("Отлично! Было загадано слово " + answerArray.join(""));
     };
 
     var drawSegment = function (incorrectGuesses) {
@@ -90,7 +90,7 @@
       }
     };
 
-    // Draw the underscores for the guesses
+    // Рисуем подчеркивания для догадок
     var drawUnderscores = function (howMany) {
       ctx.lineWidth = 4;
       ctx.beginPath();
@@ -103,13 +103,13 @@
       ctx.stroke();
     };
 
-    // Draw the correct guess in the appropriate position
+    // Рисуем угаданную букву в соответствующей позиции
     var drawCorrectGuess = function (guess, index) {
       ctx.font = "20px Comic Sans MS";
       ctx.fillText(guess.toUpperCase(), (index * 30) + 10, 150);
     };
 
-    // Draw the incorrect guess with a line through it in the appropriate position
+    // Рисуем перечеркнутую неправильную догадку в соответствующей позиции
     var drawIncorrectGuess = function (guess, index) {
       ctx.font = "20px Comic Sans MS";
       ctx.fillText(guess.toUpperCase(), 380, (index * 20) + 40);
@@ -129,7 +129,7 @@
       if (guess === null) {
         break;
       } else if (guess.length !== 1) {
-        alert("Please enter a single letter.");
+        alert("Пожалуйста, введите одиночную букву.");
       } else {
         var correctGuesses = updateGameState(guess, word, answerArray);
 
